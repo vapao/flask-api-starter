@@ -1,3 +1,5 @@
 .idea/
 *.pyc
+/venv/
+/test.db
 .DS_Store
