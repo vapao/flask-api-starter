@@ -50,6 +50,9 @@ class Argument(object):
             elif self.type in (list, dict):
                 value = json.loads(value)
                 assert isinstance(value, self.type)
+            elif self.type == bool:
+                assert value.lower() in ['true', 'false']
+                value = value.lower() == 'true'
         except (ValueError, AssertionError):
             raise ParseError(self.help or 'Type Error: %s type must be %s' % (
                 self.name, self.type))
